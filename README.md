@@ -70,7 +70,7 @@ Test
 - Adding comments to the existing file
 - Date updating functionality
 
-The script checks if [history_file_hist.md](docs/history_file_hist.md) and [history_file_hist.md](docs/hist/history_file_hist.md) exists and won't overwrite it (future -u option will handle updates). 
+The script checks if [history_file_hist.md](docs/history_file_hist.md) and [history-logs.md](logs/history-log.md) exists and won't overwrite it (future -u option will handle updates). 
 
 The `generate_history.sh 3` example will produce a template format with 3 sections and room to add the additional functionality (updating dates, adding comments) in future iterations.
 
@@ -79,9 +79,9 @@ The `generate_history.sh 3` example will produce a template format with 3 sectio
 If the [history_file_hist.md](docs/hist/history_file_hist.md) exists then there should be other function
 
 1. To ADD more template comments under the last before the "References" subheading. If a comment number is provided as the 2nd parameter, then the accounting for the number of blank comments defaults to 1 or is optional to a max of 20.
-2. Update the dates of the given Parameter number in both the [history_file_hist.md](docs/hist/history_file_hist.md) and [history-logs.md](log/history-logs.md) (however this functionality will be detailed and implemented later.
+2. Update the dates of the given Parameter number in both the [history_file_hist.md](docs/hist/history_file_hist.md) and [history-logs.md](logs/history-log.md) (however this functionality will be detailed and implemented later.
 
-- The [history-logs.md](log/history-logs.md) is linked from each comment date of entry
+- The [history-logs.md](logs/history-log.md) is linked from each comment date of entry
 
 - Heading is "# History Log" and its subheadings are "# \<date of entry or change> to match the entry in the main [history_file_hist.md](docs/hist/history_file_hist.md) file
 
