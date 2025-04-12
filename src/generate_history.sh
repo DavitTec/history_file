@@ -31,7 +31,7 @@ else
 fi
 
 USER_NAME=$AUTHOR
-gitsrc="https://github.com/DavitTec/history_file.md#readme.md"
+gitsrc="https://github.com/DavitTec/history_file#README.md"
 
 NUM_COMMENTS=2                 # default 2
 CURRENT_DATE=$(date +%Y-%m-%d) # Using current date: April 10, 2025
