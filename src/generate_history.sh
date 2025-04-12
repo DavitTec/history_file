@@ -5,15 +5,11 @@ version=0.0.4
 # Updated: 2025-04-14
 # Author: David Mullins
 # Contact: david@davit.ie
-# Description: generate_history produces a history.md file froma template  before and after changes.
+# Description: generate_history produces a markdown file, named <folder_name>_hist.md, in /docs/hist/ before and after changes.
 # Usage: TODO: setup usage
 # Default values
 # Defaults
 project_dir="."
-# set -o allexport
-# source .env
-# set +o allexport
-
 eval export "$(cat .env)"
 
 # Set project_name from folder
@@ -26,7 +22,7 @@ output="$doc_dir/hist/${project_name}_hist.md"
 # TODO: redo below with update_username script
 
 # get username from .env
-# if .env doe not exist then create it
+# if .env does not exist then create it
 if [ ! -f .env ]; then
   echo "no .env found"
   exit 1
@@ -35,14 +31,14 @@ else
 fi
 
 USER_NAME=$AUTHOR
-gitsrc="https://github.com/DavitTec/history.md#readme.md"
+gitsrc="https://github.com/DavitTec/history_file.md#readme.md"
 
 NUM_COMMENTS=2                 # default 2
 CURRENT_DATE=$(date +%Y-%m-%d) # Using current date: April 10, 2025
 
 # Function to display help
 show_help() {
-  echo "Usage: $0 [options] [$project_name] [<number_of_comments>] [<logfile_dir>]"
+  echo "Usage: $0 [options] [<number_of_comments>] [<logfile_dir>]"
   echo "Options:"
   echo "  -h    Display this help message"
   echo "  -v    Verbose mode"
@@ -51,7 +47,7 @@ show_help() {
   echo "  -u    Update (not implemented)"
   echo "  -n    New create (default behavior)"
   echo "Parameters:"
-  echo "  <$project_name>        Name of the project (default: 'Project Name')"
+  echo "  <$project_name>       Name of the project (default: Name of Folder)"
   echo "  <number_of_comments>  Number of comments [0-20] (default: 2)"
   echo "  <logfile_dir>         Log file directory (default: ./logs/history-log.md)"
 }
@@ -62,7 +58,7 @@ create_history() {
   local num=$1
   # local logfile_dir=$2  # NOT implemented
 
-  # Create directory for log file if it doesn't exist
+  # Create a directory for the log file if it doesn't exist
   mkdir -p "$(dirname "$logfile_dir")"
 
   # Create History.md
