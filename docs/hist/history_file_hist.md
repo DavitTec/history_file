@@ -1,6 +1,6 @@
 # History_file
 
-created on: 2025-04-13  by [generate_history_v0.0.4](https://github.com/DavitTec/history.md#readme.md)
+created on: 2025-04-13  by [generate_history_v0.0.4](https://github.com/DavitTec/history_file#README.md)
 
 > Summary: [Description: <shorTitle> ](log/history-logs.md#Description ) (Joe Bloggs)
 >
