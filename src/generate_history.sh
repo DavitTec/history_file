@@ -1,6 +1,6 @@
 #!/bin/bash
 # generate_history.sh
-version=0.0.4
+version=0.0.5
 # Created: 2025-04-13
 # Updated: 2025-04-14
 # Author: David Mullins
@@ -10,7 +10,7 @@ version=0.0.4
 # Default values
 # Defaults
 project_dir="."
-eval export "$(cat .env)"
+
 
 # Set project_name from folder
 project_name=$(basename "$(realpath "$project_dir")")
@@ -25,10 +25,16 @@ output="$doc_dir/hist/${project_name}_hist.md"
 # if .env does not exist then create it
 if [ ! -f .env ]; then
   echo "no .env found"
-  exit 1
+   project_dir="." ; 
+   project_name=$(basename "$(realpath "$project_dir")"); 
+   echo -e "SITE=SITE=\"$HOSTNAME\"\nAUTHOR=\"$USER\"" > ".env";
+   echo "created \".env\", change contents where necessary"
 else
   echo " Found  .env and using it"
 fi
+
+eval export "$(cat .env)"
+
 
 USER_NAME=$AUTHOR
 gitsrc="https://github.com/DavitTec/history_file#README.md"
@@ -185,7 +191,7 @@ fi
 
 # if $output_file does not exist, create it
 if [ ! -f "$output" ]; then
-  echo "$output does not exist. Creating it"
+  echo -e "$output \n - does not exist. Creating it"
   create_history "${1:-$NUM_COMMENTS}"
 
 fi
@@ -194,7 +200,7 @@ if [ $# -ge 1 ]; then
   if [[ "$1" =~ ^[0-9]+$ ]] && [ "$1" -ge 0 ] && [ "$1" -le 20 ]; then
     NUM_COMMENTS=$1
   else
-    echo "Error: Number of comments must be between 0 and 20"
+    echo -e "\nError: Number of comments must be between 0 and 20"
     exit 1
   fi
 fi
@@ -205,7 +211,7 @@ fi
 
 # Main execution
 if [ -f "$output" ]; then
-  echo "$output already exists. Use -u to update (not implemented yet) or remove existing file first."
+  echo -e "$output \n - already exists. \n - Use -u to update (not implemented yet) or remove existing file first."
   exit 1
 else
   [ $VERBOSE -eq 1 ] && echo "Creating $output for '$project' with $NUM_COMMENTS comments..."
