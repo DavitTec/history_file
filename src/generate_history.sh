@@ -218,3 +218,12 @@ else
   create_history "$project" "$NUM_COMMENTS" "$logfile"
   [ $VERBOSE -eq 1 ] && echo "$output and $logfile created successfully."
 fi
+
+exit 0
+# End of script
+
+# TODO:
+#     [ ] And a .env variable: HISTORYDOC: TYPE:PATH: path to location if exists" 
+#     [ ] And a .env variable: HISORYDOCCOUNT: TYPE:NUM: keep track of number of comments sync when run with no options
+#     [ ] And a .env variable: HISTCLEAN: TYPE:BOOLEAN : if true clean emppty comments and revise HISORYDOCCOUNT 
+#     [ ] And a .env variable: HISTTODO: TYPE:NUM : Check if TODO flags are active and count Consider a TODO High(1) Medium LOW(5) scale (*****) 
